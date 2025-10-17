@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+/*separador 1 30wid 1 alto*/
+:root{
+    --negro:#1c1c1c;
+    --dorado: #D4AF37;
+    --gris: #494949;
+    --negroclaro:#212934;
+    --grisClaro: #4a4e57;
+    --font-family-base: "Open Sans", sans-serif;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+.separador{
+    width: 3rem;
+    height: .1rem;
+    background-color: var(--grisClaro);
+    margin: 0 auto;
+}
+/*header*/
+.logo{
+    background: url(../img/LOGO-MOB.jpg);
+    width: 25rem;
+    height: 4.2rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 2rem;
+}
+header .barraNavegacion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#menu-toggle{
+    display: none;
+}
+.hamburguesa{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 3rem;
+    height: 2.2rem;
+    justify-content: space-between;
+    z-index: 2;
+    margin-right: 2.5rem;
+}
+.hamburguesa span{
+    display: block;
+    height: .4rem;
+    width: 100%;
+    background-color: var(--dorado);
+    border-radius: .2rem;
+    transition: all .3s ease;
+}
+#menu-toggle:checked + .hamburguesa span:nth-child(1){
+    transform: rotate(45deg) translate(.5rem, .5rem);
+}
+#menu-toggle:checked + .hamburguesa span:nth-child(2){
+    opacity: 0;
+}
+#menu-toggle:checked + .hamburguesa span:nth-child(3){
+    transform: rotate(-45deg) translate(.5rem, -.5rem);
+}
+.menu{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: var(--negro);
+    width: 100%;
+    height: 100vh;
+    list-style: none;
+    padding: 1rem 0;
+    display: none;
+    flex-direction: column;
+    padding-top: 6rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.4);
+}
+.menu li{
+    font-size: 1.6rem;
+    padding: 2rem 0;
+    width: fit-content;
+    margin: 0 auto;
+}
+.menu li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color .3s ease;
+}
+.menu li a:hover{
+    color: var(--dorado);
+}
+#menu-toggle:checked ~ .menu{
+    display: flex;
+}
+/*hero*/
+.hero{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 2rem;
+}
+.imgTelefono{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: fill;
+}
+.imgEscritorio{
+    display: none;
+}
+/*article*/
+main .section .article h2{
+    font-size: 3rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--negroclaro);
+    padding: 0 1rem;
+}
+/*Cartas*/
+.article .container{
+    margin: 2rem;
+    max-width: 750px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.article .container .card img{
+    width: 100%;
+}
+.article .container .card h2 a{
+    text-decoration: none;
+    color: var(--negroclaro);
+}
+.card .parrafos{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    
+}
+
+.card .parrafos p{
+    color: var(--grisClaro);
+    text-align: center;
+    font-size: 1.4rem;
+}
+.article .container .card p:nth-last-child(1){
+    color: var(--negroclaro);
+
+}
+/*#212934*/
+@media (min-width: 640px){
+    .imgTelefono{
+        display: none;
+    }
+    .imgEscritorio{
+        display: block;
+        width: 100%;
+    }
+
+}
+@media (min-width: 710px){
+    .elementos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+@media (min-width:810px){
+    .elementos{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (min-width: 800px){
+    header{
+        justify-content: center;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 2rem;
+        margin: 0;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    .hamburguesa{
+        display: none;
+    }
+    .barraNavegacion{
+        width: 100%;
+    }
+    .menu{
+        position: static;
+        display: flex !important;
+        padding: 0;
+        flex-direction: row;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        width: 100%;
+        justify-content: center;
+    }
+    .menu li{
+        height: fit-content;
+        white-space: nowrap;
+        padding: 0 1rem;
+        margin: 0;
+        width: fit-content;
+    }
+    .menu li a{
+        color: var(--gris);
+        font-weight: 350;
+    }
+}
+@media (min-width: 1024px){
+    .menu li{
+
+        padding: 0 3rem;
+
+    }
+
+}
